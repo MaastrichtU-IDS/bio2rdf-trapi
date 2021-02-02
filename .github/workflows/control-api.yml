@@ -1,0 +1,30 @@
+name: Control API
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: 'What do you want to do? restart/stop/logs'
+        required: true
+        default: 'restart'
+
+jobs:
+  control-api:
+    runs-on: [self-hosted, linux, X64, node2]
+    # runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Start the API
+      if: github.event.inputs.operation == 'restart'
+      run: |
+        docker-compose up -d --build --force-recreate
+    
+    - name: Get the API docker-compose logs
+      if: github.event.inputs.operation == 'logs'
+      run: |
+        docker-compose logs --tail=1000
+
+    - name: Stop the API
+      if: github.event.inputs.operation == 'stop'
+      run: docker-compose down

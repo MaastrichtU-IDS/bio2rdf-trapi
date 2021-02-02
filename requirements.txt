@@ -1,0 +1,14 @@
+click
+connexion[swagger-ui]
+flask-cors
+flask-reverse-proxy-fix
+werkzeug<1
+tornado
+
+kgx
+rdflib
+SPARQLWrapper
+# nanopub
+# PyShEx
+# rdflib==4.2.2
+# -e git+https://github.com/vemonet/connexion.git@fix-servers-overwrite#egg=connexion[swagger-ui]

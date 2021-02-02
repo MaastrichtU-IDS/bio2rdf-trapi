@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  bio2rdf-trapi:
+    container_name: bio2rdf-trapi
+    build: .
+    restart: unless-stopped
+    # command: src/api.py
+    # ports:
+    #   - 8808:8808
+    environment: 
+      # Variable for nginx-proxy routing. See https://github.com/nginx-proxy/
+      TRAPI_SPARQL_ENDPOINT: https://bio2rdf.137.120.31.102.nip.io/sparql
+      TRAPI_DATA_DIR: /data
+      VIRTUAL_HOST: api.bio2rdf.137.120.31.102.nip.io
+      LETSENCRYPT_HOST: api.bio2rdf.137.120.31.102.nip.io
+      # VIRTUAL_HOST: api.bio2rdf.org
+      # LETSENCRYPT_HOST: api.bio2rdf.org
+      VIRTUAL_PORT: 8808
+      ## To implement (see kgx_transformer.py)
+      # ENDPOINT: http://virtuoso.np.dumontierlab.137.120.31.101.nip.io/sparql
+    volumes:
+      - /data/bio2rdf5/trapi:/data

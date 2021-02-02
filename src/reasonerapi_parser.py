@@ -142,7 +142,7 @@ def reasonerapi_to_sparql(reasoner_query):
     query_results = []
     kg_edge_count = 0
 
-    print('Running the following SPARQL query to retrieve nanopublications from ' + get_sparql_endpoint_url())
+    print('Running the following SPARQL query to retrieve data from ' + get_sparql_endpoint_url())
     print(sparql_query_get_bio2rdf)
     sparql = SPARQLWrapper(get_sparql_endpoint_url())
     sparql.setReturnFormat(JSON)

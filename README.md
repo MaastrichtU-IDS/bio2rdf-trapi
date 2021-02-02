@@ -1,6 +1,6 @@
 [![TRAPI version](https://img.shields.io/badge/TRAPI-v1.0.0-blueviolet)](https://github.com/NCATSTranslator/ReasonerAPI)
 
-Query Bio2RDF using the [Translator Reasoner API](https://github.com/NCATSTranslator/ReasonerAPI) (TRAPI)
+Query [Bio2RDF](https://bio2rdf.org/) using the [Translator Reasoner API](https://github.com/NCATSTranslator/ReasonerAPI) (TRAPI)
 
 **[🔗 https://api.bio2rdf.137.120.31.102.nip.io](https://api.bio2rdf.137.120.31.102.nip.io)**
 

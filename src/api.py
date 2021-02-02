@@ -12,11 +12,11 @@ from datetime import datetime
 
 from SPARQLWrapper import SPARQLWrapper, TURTLE, XML
 from rdflib import Graph
-from kgx import RdfTransformer, PandasTransformer
-import zipfile
+# from kgx import RdfTransformer, PandasTransformer
+# import zipfile
 
-from kgx_transformer import KgxTransformer
-from reasonerapi_parser import reasonerapi_to_sparql, get_predicates_from_nanopubs
+# from kgx_transformer import KgxTransformer
+from reasonerapi_parser import reasonerapi_to_sparql, get_predicates_from_bio2rdf
 from utils import get_data_dir
 
 
@@ -69,23 +69,12 @@ def start_api(port=8808, server_url='/', debug=False):
     api.run(host='0.0.0.0', port=port, debug=debug, server=deployment_server)
 
 
-def get_kgx(from_kg):
-    """Query the Nanopubs SPARQL endpoint using CONSTRUCT queries 
-    to retrieve BioLink nodes and edges (associations)
-    Then convert the RDF to kgx TSV format
-    And return the nodes/edges files in a zip file  
-    """
-    kgx_transformer = KgxTransformer(get_data_dir())
-    resp = kgx_transformer.transform_rdf_to_kgx(from_kg)
-    return resp
-
-
 def get_predicates():
     """Get predicates and entities provided by the API
     
     :return: JSON with biolink entities
     """
-    return get_predicates_from_nanopubs()
+    return get_predicates_from_bio2rdf()
 
 def post_reasoner_query(request_body):
     """Get associations for a given ReasonerAPI query.
@@ -117,6 +106,16 @@ def post_reasoner_query(request_body):
     #   },
 
     return reasonerapi_response or ('Not found', 404)
+
+def get_kgx(from_kg):
+    """Query the Bio2RDF SPARQL endpoint using CONSTRUCT queries 
+    to retrieve BioLink nodes and edges (associations)
+    Then convert the RDF to kgx TSV format
+    And return the nodes/edges files in a zip file  
+    """
+    kgx_transformer = KgxTransformer(get_data_dir())
+    resp = kgx_transformer.transform_rdf_to_kgx(from_kg)
+    return resp
 
 if __name__ == '__main__':
 

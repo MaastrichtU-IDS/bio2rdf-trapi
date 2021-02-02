@@ -5,7 +5,7 @@ info:
     \n\nSee the API GitHub repository: [github.com/MaastrichtU-IDS/bio2rdf-trapi](https://github.com/MaastrichtU-IDS/bio2rdf-trapi)
     \n\nThis service is supported by the [NCATS Translator project](https://ncats.nih.gov/translator/about)"
   version: 1.0.0
-  title: Translator Bio2RDF API
+  title: Bio2RDF Translator API
   contact:
     email: vincent.emonet@maastrichtuniversity.nl
   license:

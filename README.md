@@ -1,34 +1,26 @@
 [![TRAPI version](https://img.shields.io/badge/TRAPI-v1.0.0-blueviolet)](https://github.com/NCATSTranslator/ReasonerAPI)
 
-Query Bio2RDF using the [Translator Reasoner API](https://github.com/NCATSTranslator/ReasonerAPI) (TRAPI) `v1.0.0`
+Query Bio2RDF using the [Translator Reasoner API](https://github.com/NCATSTranslator/ReasonerAPI) (TRAPI)
 
 **[🔗 https://api.bio2rdf.137.120.31.102.nip.io](https://api.bio2rdf.137.120.31.102.nip.io)**
 
-## Deploy Bio2RDF TRAPI 🚀
+## Deploy Bio2RDF TRAPI 🛩️
 
-Starts the **Translator Reasoner API to query the Bio2RDF SPARQL endpoint**
+Starts the Translator Reasoner API to query the Bio2RDF SPARQL endpoint
 
-* Query Bio2RDF using the [ReasonerAPI](https://github.com/NCATSTranslator/ReasonerAPI) standards and [KGX](https://github.com/biolink/kgx)
-  * Supports [Translator Reasoner API](https://github.com/NCATSTranslator/ReasonerAPI) `1.0.0` 
-  * The TRAPI-SPARQL interface is implemented in Python in the `src/` folder
-* OpenAPI 3 with Swagger UI, built in Python using [zalando/connexion](https://github.com/zalando/connexion)
-
-Available at **[https://api.bio2rdf.137.120.31.102.nip.io 🔗](https://api.bio2rdf.137.120.31.102.nip.io)**
-
-Starts the **Translator Reasoner API to query the Bio2RDF SPARQL endpoint**, supporting TRAPI `1.0.0`
+* The TRAPI-SPARQL interface is implemented in Python in the `src/` folder
+* Uses OpenAPI 3 with Swagger UI, built in Python using [zalando/connexion](https://github.com/zalando/connexion)
 
 > Requires [Python 3.7+](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/stable/installing/)
 
-Clone the repository first
+1. Clone the repository
 
 ```bash
 git clone https://github.com/MaastrichtU-IDS/bio2rdf-trapi.git
 cd bio2rdf-trapi
 ```
 
-### Start the API locally 🛩️
-
-Install dependencies
+2. Install dependencies
 
 ```bash
 pip3 install -r requirements.txt
@@ -44,7 +36,7 @@ pip3 install -r requirements.txt
 > ```
 >
 
-Start the API in **production** mode on http://localhost:8808 with Tornado:
+3. Start the API in **production** mode on http://localhost:8808 with Tornado:
 
 ```bash
 python3 src/api.py
@@ -62,13 +54,11 @@ python3 src/api.py debug
 
 Requirements: [Docker](https://docs.docker.com/get-docker/).
 
-Build and start the container with [docker-compose 🐳](https://docs.docker.com/compose/)
+Build and start the container with [docker-compose](https://docs.docker.com/compose/) on [http://localhost:8808](http://localhost:8808)
 
 ```bash
 docker-compose up -d --build
 ```
-
-> Access the Swagger UI at [http://localhost:8808](http://localhost:8808)
 
 > We use [nginx-proxy](https://github.com/nginx-proxy/nginx-proxy) and [docker-letsencrypt-nginx-proxy-companion](https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion) as reverse proxy for HTTP and HTTPS in production. You can change the proxy URL and port via environment variables `VIRTUAL_HOST`, `VIRTUAL_PORT` and `LETSENCRYPT_HOST` in the [docker-compose.yml](https://github.com/MaastrichtU-IDS/bio2rdf-trapi/blob/master/docker-compose.yml) file.
 
